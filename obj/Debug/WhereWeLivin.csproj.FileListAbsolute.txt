@@ -7,4 +7,6 @@ X:\CodingProjects\RiderProjects\WhereWeLivin\obj\Debug\WhereWeLivin.csproj.Gener
 X:\CodingProjects\RiderProjects\WhereWeLivin\obj\Debug\WhereWeLivin.csproj.CoreCompileInputs.cache
 X:\CodingProjects\RiderProjects\WhereWeLivin\obj\Debug\WhereWeLivin.exe
 X:\CodingProjects\RiderProjects\WhereWeLivin\obj\Debug\WhereWeLivin.pdb
-X:\CodingProjects\RiderProjects\WhereWeLivin\obj\Debug\WhereWeLivin.ServerEnter.resources
+X:\CodingProjects\RiderProjects\WhereWeLivin\obj\Debug\WhereWeLivin.Pages.HostEnter.resources
+X:\CodingProjects\RiderProjects\WhereWeLivin\obj\Debug\WhereWeLivin.Pages.TemplateForm.resources
+X:\CodingProjects\RiderProjects\WhereWeLivin\obj\Debug\WhereWeLivin.Pages.ServerEnter.resources

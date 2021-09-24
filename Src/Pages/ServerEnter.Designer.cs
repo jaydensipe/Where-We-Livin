@@ -1,4 +1,4 @@
-﻿namespace WhereWeLivin
+﻿namespace WhereWeLivin.Pages
 {
     partial class ServerEnter
     {
@@ -114,6 +114,7 @@
             this.connectButton.TabIndex = 5;
             this.connectButton.Text = "Connect";
             this.connectButton.UseVisualStyleBackColor = false;
+            this.connectButton.Click += new System.EventHandler(this.connectButton_Click);
             // 
             // hostButton
             // 
@@ -130,6 +131,7 @@
             this.hostButton.TabIndex = 6;
             this.hostButton.Text = "Host";
             this.hostButton.UseVisualStyleBackColor = false;
+            this.hostButton.Click += new System.EventHandler(this.hostButton_Click);
             // 
             // portTextBox
             // 
