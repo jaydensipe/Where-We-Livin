@@ -106,6 +106,7 @@
             this.connectButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
             this.connectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.connectButton.Font = new System.Drawing.Font("Forte", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.connectButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.connectButton.Image = ((System.Drawing.Image)(resources.GetObject("connectButton.Image")));
             this.connectButton.ImageAlign = System.Drawing.ContentAlignment.TopRight;
             this.connectButton.Location = new System.Drawing.Point(159, 372);
