@@ -38,6 +38,7 @@
             this.connectButton = new System.Windows.Forms.Button();
             this.hostButton = new System.Windows.Forms.Button();
             this.portTextBox = new System.Windows.Forms.TextBox();
+            this.Debug = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,7 +69,7 @@
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label2.Font = new System.Drawing.Font("Forte", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.MenuText;
             this.label2.Location = new System.Drawing.Point(0, 123);
             this.label2.Name = "label2";
@@ -80,7 +81,7 @@
             // serverTextBox
             // 
             this.serverTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.serverTextBox.Location = new System.Drawing.Point(172, 200);
+            this.serverTextBox.Location = new System.Drawing.Point(172, 210);
             this.serverTextBox.Name = "serverTextBox";
             this.serverTextBox.Size = new System.Drawing.Size(176, 26);
             this.serverTextBox.TabIndex = 2;
@@ -89,11 +90,11 @@
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label3.Font = new System.Drawing.Font("Forte", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.label3.Location = new System.Drawing.Point(0, 229);
+            this.label3.Location = new System.Drawing.Point(0, 242);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(527, 119);
+            this.label3.Size = new System.Drawing.Size(527, 64);
             this.label3.TabIndex = 3;
             this.label3.Text = "Port Number:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -105,11 +106,11 @@
             this.connectButton.FlatAppearance.BorderSize = 0;
             this.connectButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
             this.connectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.connectButton.Font = new System.Drawing.Font("Forte", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.connectButton.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.connectButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.connectButton.Image = ((System.Drawing.Image)(resources.GetObject("connectButton.Image")));
             this.connectButton.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.connectButton.Location = new System.Drawing.Point(159, 372);
+            this.connectButton.Location = new System.Drawing.Point(159, 369);
             this.connectButton.Name = "connectButton";
             this.connectButton.Size = new System.Drawing.Size(206, 53);
             this.connectButton.TabIndex = 5;
@@ -124,7 +125,7 @@
             this.hostButton.FlatAppearance.BorderSize = 0;
             this.hostButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
             this.hostButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.hostButton.Font = new System.Drawing.Font("Forte", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hostButton.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hostButton.ImageAlign = System.Drawing.ContentAlignment.TopRight;
             this.hostButton.Location = new System.Drawing.Point(397, 123);
             this.hostButton.Name = "hostButton";
@@ -137,11 +138,28 @@
             // portTextBox
             // 
             this.portTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.portTextBox.Location = new System.Drawing.Point(172, 313);
+            this.portTextBox.Location = new System.Drawing.Point(172, 305);
             this.portTextBox.Name = "portTextBox";
             this.portTextBox.Size = new System.Drawing.Size(176, 26);
             this.portTextBox.TabIndex = 7;
             this.portTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // Debug
+            // 
+            this.Debug.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.Debug.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonFace;
+            this.Debug.FlatAppearance.BorderSize = 0;
+            this.Debug.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Debug.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Debug.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Debug.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.Debug.Location = new System.Drawing.Point(12, 123);
+            this.Debug.Name = "Debug";
+            this.Debug.Size = new System.Drawing.Size(118, 44);
+            this.Debug.TabIndex = 8;
+            this.Debug.Text = "Debug";
+            this.Debug.UseVisualStyleBackColor = false;
+            this.Debug.Click += new System.EventHandler(this.Debug_Click);
             // 
             // ServerEnter
             // 
@@ -149,6 +167,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(527, 466);
+            this.Controls.Add(this.Debug);
             this.Controls.Add(this.portTextBox);
             this.Controls.Add(this.hostButton);
             this.Controls.Add(this.connectButton);
@@ -166,6 +185,10 @@
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.Button startButton;
+
+        private System.Windows.Forms.Button Debug;
 
         private System.Windows.Forms.TextBox portTextBox;
 

@@ -29,22 +29,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("Connected Clients");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HostEnter));
             this.connectedClientList = new System.Windows.Forms.ListView();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.startButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // connectedClientList
             // 
             this.connectedClientList.Alignment = System.Windows.Forms.ListViewAlignment.Left;
-            this.connectedClientList.Items.AddRange(new System.Windows.Forms.ListViewItem[] { listViewItem1 });
+            this.connectedClientList.BackColor = System.Drawing.SystemColors.Window;
+            this.connectedClientList.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.connectedClientList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.connectedClientList.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.connectedClientList.LabelWrap = false;
-            this.connectedClientList.Location = new System.Drawing.Point(92, 138);
+            this.connectedClientList.Location = new System.Drawing.Point(93, 152);
             this.connectedClientList.Name = "connectedClientList";
+            this.connectedClientList.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.connectedClientList.Size = new System.Drawing.Size(339, 222);
             this.connectedClientList.TabIndex = 0;
+            this.connectedClientList.Tag = "";
             this.connectedClientList.UseCompatibleStateImageBehavior = false;
+            this.connectedClientList.View = System.Windows.Forms.View.SmallIcon;
             // 
             // label1
             // 
@@ -60,11 +67,42 @@
             this.label1.Text = "WhereWeLivin?";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(170, 126);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(173, 23);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Connected Clients";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // startButton
+            // 
+            this.startButton.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.startButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonFace;
+            this.startButton.FlatAppearance.BorderSize = 0;
+            this.startButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.startButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.startButton.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.startButton.Image = ((System.Drawing.Image)(resources.GetObject("startButton.Image")));
+            this.startButton.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.startButton.Location = new System.Drawing.Point(160, 409);
+            this.startButton.Name = "startButton";
+            this.startButton.Size = new System.Drawing.Size(206, 53);
+            this.startButton.TabIndex = 6;
+            this.startButton.Text = "Start Game";
+            this.startButton.UseVisualStyleBackColor = false;
+            this.startButton.Click += new System.EventHandler(this.startButton_Click);
+            // 
             // HostEnter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(527, 466);
+            this.ClientSize = new System.Drawing.Size(527, 505);
+            this.Controls.Add(this.startButton);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.connectedClientList);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -75,6 +113,12 @@
             this.Text = "WhereWeLivin";
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.Button startButton;
+
+        private System.Windows.Forms.Button connectButton;
+
+        private System.Windows.Forms.Label label2;
 
         private System.Windows.Forms.Label label1;
 

@@ -21,15 +21,18 @@ namespace WhereWeLivin.Network
             _clientSocket.BeginReceive(new byte[] { 0 }, 0, 0, 0, Callback, null);
         }
 
+
+
         void Callback(IAsyncResult asyncResult)
         {
             try
             {
                 _clientSocket.EndReceive(asyncResult);
-               
+
                 byte[] buffer = new byte[8192];
                 int rec = _clientSocket.Receive(buffer, buffer.Length, 0);
 
+                // Throws if disconnected
                 if (rec == 0)
                 {
                     throw new SocketException();
@@ -39,8 +42,6 @@ namespace WhereWeLivin.Network
                 {
                     Array.Resize(ref buffer, rec);
                 }
-                
-                
 
                 Received?.Invoke(this, buffer);
                 _clientSocket.BeginReceive(new byte[] { 0 }, 0, 0, 0, Callback, null);
@@ -48,11 +49,14 @@ namespace WhereWeLivin.Network
             catch (Exception e)
             {
                 Console.WriteLine(e);
+                Close();
             }
         }
 
-        public void Close()
+        private void Close()
         {
+            Disconnected?.Invoke(this);
+
             _clientSocket.Close();
             _clientSocket.Dispose();
         }
@@ -62,6 +66,5 @@ namespace WhereWeLivin.Network
 
         public event ClientReceivedHandler Received;
         public event ClientDisconnectedHandler Disconnected;
-
     }
 }

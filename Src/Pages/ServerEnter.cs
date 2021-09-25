@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net;
 using System.Net.Sockets;
+using System.Text;
 using System.Windows.Forms;
-using WhereWeLivin.Network;
 
 namespace WhereWeLivin.Pages
 {
     public partial class ServerEnter : Form
     {
         private Form _hostForm;
+        private Form _gameClientForm;
         
         public ServerEnter()
         {
@@ -30,12 +31,24 @@ namespace WhereWeLivin.Pages
             return true;
         }
 
+        // Handles connect button click
         private void connectButton_Click(object sender, EventArgs e)
         {
             if (!AreInputsValid())
                 return;
+
+            if (_gameClientForm == null)
+            {
+                _gameClientForm = new GameClient(IPAddress.Parse(serverTextBox.Text), int.Parse(portTextBox.Text));
+                _gameClientForm.Closed += (j, ev) => Application.Exit();
+                _gameClientForm.FormClosed += (j, ev) => Application.Exit();
+            }
+            
+            Hide();
+            _gameClientForm.Show();
         }
 
+        // Handles host button click
         private void hostButton_Click(object sender, EventArgs e)
         {
             if (!AreInputsValid())
@@ -51,6 +64,12 @@ namespace WhereWeLivin.Pages
             
             Hide();
             _hostForm.Show();
+        }
+
+        private void Debug_Click(object sender, EventArgs e)
+        {
+            portTextBox.Text = "8";
+            serverTextBox.Text = "127.0.0.1";
         }
     }
 }

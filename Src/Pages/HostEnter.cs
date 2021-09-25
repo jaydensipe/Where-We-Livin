@@ -11,54 +11,46 @@ namespace WhereWeLivin.Pages
 {
     public partial class HostEnter : Form
     {
-        private static Server _server;
-        private List<Client> _clients;
-        private readonly int _port;
-        private readonly IPAddress _serverAddress;
+        private HashSet<Client> _clients;
 
         public HostEnter(IPAddress serverAddress, int port)
         {
-            _serverAddress = serverAddress;
-            _port = port;
-            
+            var server = new Server(serverAddress, port);
+            server.SocketAccepted += ServerSocketAccepted;
+
+            server.Start();
+
             InitializeComponent();
         }
 
-        protected override void OnLoad(EventArgs e)
-        {
-            // Initialize Server Host
-            _server = new Server(_serverAddress, _port);
-            _server.SocketAccepted += ServerSocketAccepted;
-            
-            _server.Start();
-        }
-
+        // Server accepts client connection and lists them
         private void ServerSocketAccepted(Socket socket)
         {
             var client = new Client(socket);
             client.Received += ClientOnReceived;
             client.Disconnected += ClientOnDisconnected;
-            
+
             Invoke((MethodInvoker)delegate
             {
                 var viewItem = new ListViewItem
                 {
-                    Text = client.EndPoint.ToString()
+                    Text = client.EndPoint.ToString(),
+                    Tag = client.ID,
+                    Group = new ListViewGroup("Connected Clients")
                 };
-                viewItem.SubItems.Add(client.ID);
-                connectedClientList.Items.Add(viewItem);
 
+                connectedClientList.Items.Add(viewItem);
             });
         }
 
+        // Handles and delete client from list of connected users
         private void ClientOnDisconnected(Client sender)
         {
-            Console.WriteLine("yoo dis");
             Invoke((MethodInvoker)delegate
             {
                 for (int i = 0; i < connectedClientList.Items.Count; i++)
                 {
-                    if (connectedClientList.Items[i].Tag is Client client && client.ID == sender.ID)
+                    if (ReferenceEquals(sender.ID, connectedClientList.Items[i].Tag))
                     {
                         connectedClientList.Items.RemoveAt(i);
                         break;
@@ -67,20 +59,26 @@ namespace WhereWeLivin.Pages
             });
         }
 
+        // Handles and adds client from list of connected users
         private void ClientOnReceived(Client sender, byte[] data)
         {
             Invoke((MethodInvoker)delegate
             {
                 for (int i = 0; i < connectedClientList.Items.Count; i++)
                 {
-                    if (connectedClientList.Items[i].Tag is Client client && client.ID == sender.ID)
+                    if (ReferenceEquals(sender.ID, connectedClientList.Items[i].Tag))
                     {
-                        Console.WriteLine("yo");
+                        // hashset add to variable for client
                         Console.WriteLine(Encoding.Default.GetString(data));
                         break;
                     }
                 }
             });
+        }
+
+        private void startButton_Click(object sender, EventArgs e)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
