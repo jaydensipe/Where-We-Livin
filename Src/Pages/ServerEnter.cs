@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Net;
-using System.Net.Sockets;
-using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using WhereWeLivin.Network;
 
 namespace WhereWeLivin.Pages
 {
@@ -27,11 +25,23 @@ namespace WhereWeLivin.Pages
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
+            
+            // Checks if IP Address is in valid format
+            if (!Regex.IsMatch(serverTextBox.Text, "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"))
+            {
+                MessageBox.Show(@"Please enter a valid Server Address!", @"ERROR", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            // Sets IPAddress and Port global variables
+            NetworkInformation.IpAddress = IPAddress.Parse(serverTextBox.Text);
+            NetworkInformation.Port = int.Parse(portTextBox.Text);
 
             return true;
         }
 
-        // Handles connect button click
+        // Handles connect button click (client)
         private void connectButton_Click(object sender, EventArgs e)
         {
             if (!AreInputsValid())
@@ -39,16 +49,16 @@ namespace WhereWeLivin.Pages
 
             if (_gameClientForm == null)
             {
-                _gameClientForm = new GameClient(IPAddress.Parse(serverTextBox.Text), int.Parse(portTextBox.Text));
-                _gameClientForm.Closed += (j, ev) => Application.Exit();
-                _gameClientForm.FormClosed += (j, ev) => Application.Exit();
+                _gameClientForm = new GameClient();
+                _gameClientForm.Closed += (s, ev) => Application.Exit();
+                _gameClientForm.FormClosed += (s, ev) => Application.Exit();
             }
             
             Hide();
             _gameClientForm.Show();
         }
 
-        // Handles host button click
+        // Handles host button click (host)
         private void hostButton_Click(object sender, EventArgs e)
         {
             if (!AreInputsValid())
@@ -56,8 +66,7 @@ namespace WhereWeLivin.Pages
 
             if (_hostForm == null)
             {
-
-                _hostForm = new HostEnter(IPAddress.Parse(serverTextBox.Text), int.Parse(portTextBox.Text));
+                _hostForm = new HostEnter();
                 _hostForm.Closed += (s, ev) => Application.Exit();
                 _hostForm.FormClosed += (s, ev) => Application.Exit();
             }

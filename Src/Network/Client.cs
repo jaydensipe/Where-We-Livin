@@ -1,70 +1,63 @@
 ﻿using System;
 using System.Diagnostics;
+using System.IO;
 using System.Net;
 using System.Net.Sockets;
-using System.Runtime.Remoting.Messaging;
+using System.Windows.Forms;
 
 namespace WhereWeLivin.Network
 {
     public class Client
     {
-        public readonly string ID;
-        public readonly IPEndPoint EndPoint;
-        private readonly Socket _clientSocket;
+        private TcpClient _tcpClient;
+        private NetworkStream _networkStream;
+        private StreamReader _streamReader;
+        private StreamWriter _streamWriter;
+        private String _serverInput;
 
-        public Client(Socket accepted)
-        {
-            _clientSocket = accepted;
-            ID = Guid.NewGuid().ToString();
-            EndPoint = (IPEndPoint)accepted.RemoteEndPoint;
-
-            _clientSocket.BeginReceive(new byte[] { 0 }, 0, 0, 0, Callback, null);
-        }
-
-
-
-        void Callback(IAsyncResult asyncResult)
+        public void Connect()
         {
             try
             {
-                _clientSocket.EndReceive(asyncResult);
-
-                byte[] buffer = new byte[8192];
-                int rec = _clientSocket.Receive(buffer, buffer.Length, 0);
-
-                // Throws if disconnected
-                if (rec == 0)
-                {
-                    throw new SocketException();
-                }
-
-                if (rec < buffer.Length)
-                {
-                    Array.Resize(ref buffer, rec);
-                }
-
-                Received?.Invoke(this, buffer);
-                _clientSocket.BeginReceive(new byte[] { 0 }, 0, 0, 0, Callback, null);
+                _tcpClient = new TcpClient(NetworkInformation.IpAddress.ToString(), NetworkInformation.Port);
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
-                Close();
+                throw;
+            }
+            
+            _networkStream = _tcpClient.GetStream();
+            _streamReader = new StreamReader(_networkStream);
+            _streamWriter = new StreamWriter(_networkStream);
+            
+            Application.ApplicationExit += OnApplicationExit;
+
+        }
+
+        private void OnApplicationExit(object sender, EventArgs e)
+        {
+           WriteToServer("EXIT");
+        }
+
+        public void WriteToServer(String message)
+        {
+            _streamWriter.WriteLine(message);
+            _streamWriter.Flush();
+        }
+
+        public void ReadFromServer()
+        {
+            _serverInput = _streamReader.ReadLine();
+            
+            if (_serverInput != null && _streamReader != null && _serverInput.Equals("START"))
+            {
+                IncomingServerMessage?.Invoke();
             }
         }
 
-        private void Close()
-        {
-            Disconnected?.Invoke(this);
-
-            _clientSocket.Close();
-            _clientSocket.Dispose();
-        }
-
-        public delegate void ClientReceivedHandler(Client sender, byte[] data);
-        public delegate void ClientDisconnectedHandler(Client sender);
-
-        public event ClientReceivedHandler Received;
-        public event ClientDisconnectedHandler Disconnected;
+        public delegate void IncomingServerMessageHandler();
+        public event IncomingServerMessageHandler IncomingServerMessage;
+        
     }
 }

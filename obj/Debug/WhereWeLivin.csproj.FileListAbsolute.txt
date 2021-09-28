@@ -11,3 +11,4 @@ X:\CodingProjects\RiderProjects\WhereWeLivin\obj\Debug\WhereWeLivin.Pages.HostEn
 X:\CodingProjects\RiderProjects\WhereWeLivin\obj\Debug\WhereWeLivin.Pages.TemplateForm.resources
 X:\CodingProjects\RiderProjects\WhereWeLivin\obj\Debug\WhereWeLivin.Pages.ServerEnter.resources
 X:\CodingProjects\RiderProjects\WhereWeLivin\obj\Debug\WhereWeLivin.Pages.GameClient.resources
+X:\CodingProjects\RiderProjects\WhereWeLivin\obj\Debug\WhereWeLivin.Pages.MainGame.resources

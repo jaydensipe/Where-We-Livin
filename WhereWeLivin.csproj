@@ -48,6 +48,7 @@
     <ItemGroup>
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="Src\Network\Client.cs" />
+        <Compile Include="Src\Network\NetworkInformation.cs" />
         <Compile Include="Src\Network\Server.cs" />
         <Compile Include="Src\Pages\GameClient.cs">
           <SubType>Form</SubType>
@@ -55,11 +56,18 @@
         <Compile Include="Src\Pages\GameClient.Designer.cs">
           <DependentUpon>GameClient.cs</DependentUpon>
         </Compile>
+        <Compile Include="Src\Pages\GameInformation.cs" />
         <Compile Include="Src\Pages\HostEnter.cs">
           <SubType>Form</SubType>
         </Compile>
         <Compile Include="Src\Pages\HostEnter.Designer.cs">
           <DependentUpon>HostEnter.cs</DependentUpon>
+        </Compile>
+        <Compile Include="Src\Pages\MainGame.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="Src\Pages\MainGame.Designer.cs">
+          <DependentUpon>MainGame.cs</DependentUpon>
         </Compile>
         <Compile Include="Src\Pages\TemplateForm.cs">
           <SubType>Form</SubType>
@@ -88,6 +96,9 @@
         </EmbeddedResource>
         <EmbeddedResource Include="Src\Pages\HostEnter.resx">
           <DependentUpon>HostEnter.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Src\Pages\MainGame.resx">
+          <DependentUpon>MainGame.cs</DependentUpon>
         </EmbeddedResource>
         <EmbeddedResource Include="Src\Pages\TemplateForm.resx">
           <DependentUpon>TemplateForm.cs</DependentUpon>

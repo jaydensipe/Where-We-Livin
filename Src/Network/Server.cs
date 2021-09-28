@@ -1,67 +1,76 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Net;
 using System.Net.Sockets;
+using System.Threading;
 
 namespace WhereWeLivin.Network
 {
     public class Server
     {
-        private Socket _socket;
-        private bool _isListening;
-        private readonly int _port;
-        private readonly IPAddress _serverAddress;
+        private static readonly TcpListener TcpServer = new TcpListener(NetworkInformation.IpAddress, NetworkInformation.Port);
+        NetworkStream _networkStream;
+        StreamWriter _streamWriter;
+        StreamReader _streamReader;
 
-        public Server(IPAddress serverAddress, int port)
+        private List<Socket> clientConnections = new List<Socket>();
+
+        private void Listening()
         {
-            _port = port;
-            _serverAddress = serverAddress;
-            
-            _socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            Socket connectedClientSocket = TcpServer.AcceptSocket();
+            clientConnections.Add(connectedClientSocket);
+
+            if (connectedClientSocket.Connected)
+            {
+                Console.WriteLine(@"Client:" + connectedClientSocket.RemoteEndPoint + @" now connected to server.");
+                OnClientJoin?.Invoke(connectedClientSocket.RemoteEndPoint);
+            }
         }
 
         public void Start()
         {
-            if (_isListening)
-                return;
+            TcpServer.Start();
             
-            // Binds socket to passed in IP address and port
-            _socket.Bind(new IPEndPoint(_serverAddress, _port));
-            _socket.Listen(0);
-
-            _socket.BeginAccept(Callback, null);
-            _isListening = true;
-        }
-
-        public void Stop()
-        {
-            if (!_isListening)
-                return;
-            
-            _socket.Close();
-            _socket.Dispose();
-            
-            _socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-
-        }
-
-        void Callback(IAsyncResult asyncResult)
-        {
-            try
+            for (int i = 0; i < 2; i++)
             {
-                var connection = _socket.EndAccept(asyncResult);
+                Thread thread = new Thread(Listening);
+                thread.Start();
+            }
+        }
 
-                SocketAccepted?.Invoke(connection);
+        public void WriteToAllClient()
+        {
+            foreach (var socket in clientConnections)
+            { 
+                _networkStream = new NetworkStream(socket);
+                _streamWriter = new StreamWriter(_networkStream);
                 
-                _socket.BeginAccept(Callback, null);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
+                _streamWriter.WriteLine("START");
+                _streamWriter.Flush();
+            } 
         }
 
-        public delegate void SocketAcceptHandler(Socket socket);
-        public event SocketAcceptHandler SocketAccepted;
+        public void ReadFromAllClient()
+        {
+            foreach (var socket in clientConnections)
+            { 
+                _networkStream = new NetworkStream(socket);
+                _streamReader = new StreamReader(_networkStream);
+
+                if (_streamReader != null && _streamReader.ReadLine().Equals("EXIT"))
+                {
+                    OnClientDisconnect?.Invoke(socket.RemoteEndPoint);
+                    break;
+                }
+
+            } 
+        }
+        
+        public delegate void ClientJoinHandler(EndPoint endPoint);
+        public event ClientJoinHandler OnClientJoin;
+        
+        public delegate void ClientDisconnectHandler(EndPoint endPoint);
+        public event ClientDisconnectHandler OnClientDisconnect;
     }
 }

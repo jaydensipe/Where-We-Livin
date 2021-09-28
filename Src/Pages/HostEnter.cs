@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Dynamic;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using WhereWeLivin.Network;
 
@@ -11,74 +9,54 @@ namespace WhereWeLivin.Pages
 {
     public partial class HostEnter : Form
     {
-        private HashSet<Client> _clients;
-
-        public HostEnter(IPAddress serverAddress, int port)
+        private readonly Server _server;
+        
+        public HostEnter()
         {
-            var server = new Server(serverAddress, port);
-            server.SocketAccepted += ServerSocketAccepted;
-
-            server.Start();
-
+            _server = new Server();
+            _server.Start();
+            
+            _server.OnClientJoin += ServerOnClientJoin;
+            _server.OnClientDisconnect += ServerOnClientDisconnect;
+            
+            Task.Factory.StartNew(() =>
+            {
+                while (true)
+                {
+                    _server.ReadFromAllClient();
+                }
+            });
+            
             InitializeComponent();
         }
 
-        // Server accepts client connection and lists them
-        private void ServerSocketAccepted(Socket socket)
+        // Handles and deletes client from list of connected clients
+        private void ServerOnClientDisconnect(EndPoint endpoint)
         {
-            var client = new Client(socket);
-            client.Received += ClientOnReceived;
-            client.Disconnected += ClientOnDisconnected;
-
-            Invoke((MethodInvoker)delegate
+            for (int i = 0; i < connectedClientList.Items.Count; i++)
             {
-                var viewItem = new ListViewItem
+                if (ReferenceEquals(endpoint.ToString(), connectedClientList.Items[i].Text))
                 {
-                    Text = client.EndPoint.ToString(),
-                    Tag = client.ID,
-                    Group = new ListViewGroup("Connected Clients")
-                };
-
-                connectedClientList.Items.Add(viewItem);
-            });
-        }
-
-        // Handles and delete client from list of connected users
-        private void ClientOnDisconnected(Client sender)
-        {
-            Invoke((MethodInvoker)delegate
-            {
-                for (int i = 0; i < connectedClientList.Items.Count; i++)
-                {
-                    if (ReferenceEquals(sender.ID, connectedClientList.Items[i].Tag))
-                    {
-                        connectedClientList.Items.RemoveAt(i);
-                        break;
-                    }
+                    connectedClientList.Items.RemoveAt(i);
+                    break;
                 }
-            });
+            }
         }
 
-        // Handles and adds client from list of connected users
-        private void ClientOnReceived(Client sender, byte[] data)
+        // Event for handling adding connected client to list
+        private void ServerOnClientJoin(EndPoint endpoint)
         {
-            Invoke((MethodInvoker)delegate
+            var viewItem = new ListViewItem
             {
-                for (int i = 0; i < connectedClientList.Items.Count; i++)
-                {
-                    if (ReferenceEquals(sender.ID, connectedClientList.Items[i].Tag))
-                    {
-                        // hashset add to variable for client
-                        Console.WriteLine(Encoding.Default.GetString(data));
-                        break;
-                    }
-                }
-            });
+                Text = endpoint.ToString(),
+            };
+            
+            connectedClientList.Items.Add(viewItem);
         }
-
+        
         private void startButton_Click(object sender, EventArgs e)
         {
-            throw new System.NotImplementedException();
+            _server.WriteToAllClient();
         }
     }
 }
