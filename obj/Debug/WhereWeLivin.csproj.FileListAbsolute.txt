@@ -1,0 +1,14 @@
+X:\CodingProjects\RiderProjects\WhereWeLivin\bin\Debug\WhereWeLivin.exe.config
+X:\CodingProjects\RiderProjects\WhereWeLivin\bin\Debug\WhereWeLivin.exe
+X:\CodingProjects\RiderProjects\WhereWeLivin\bin\Debug\WhereWeLivin.pdb
+X:\CodingProjects\RiderProjects\WhereWeLivin\obj\Debug\WhereWeLivin.csprojAssemblyReference.cache
+X:\CodingProjects\RiderProjects\WhereWeLivin\obj\Debug\WhereWeLivin.Properties.Resources.resources
+X:\CodingProjects\RiderProjects\WhereWeLivin\obj\Debug\WhereWeLivin.csproj.GenerateResource.cache
+X:\CodingProjects\RiderProjects\WhereWeLivin\obj\Debug\WhereWeLivin.csproj.CoreCompileInputs.cache
+X:\CodingProjects\RiderProjects\WhereWeLivin\obj\Debug\WhereWeLivin.exe
+X:\CodingProjects\RiderProjects\WhereWeLivin\obj\Debug\WhereWeLivin.pdb
+X:\CodingProjects\RiderProjects\WhereWeLivin\obj\Debug\WhereWeLivin.Pages.HostEnter.resources
+X:\CodingProjects\RiderProjects\WhereWeLivin\obj\Debug\WhereWeLivin.Pages.TemplateForm.resources
+X:\CodingProjects\RiderProjects\WhereWeLivin\obj\Debug\WhereWeLivin.Pages.ServerEnter.resources
+X:\CodingProjects\RiderProjects\WhereWeLivin\obj\Debug\WhereWeLivin.Pages.GameClient.resources
+X:\CodingProjects\RiderProjects\WhereWeLivin\obj\Debug\WhereWeLivin.Pages.MainGame.resources
