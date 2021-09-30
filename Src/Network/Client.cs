@@ -4,6 +4,7 @@ using System.IO;
 using System.Net;
 using System.Net.Sockets;
 using System.Windows.Forms;
+using WhereWeLivin.Pages;
 
 namespace WhereWeLivin.Network
 {
@@ -13,8 +14,9 @@ namespace WhereWeLivin.Network
         private NetworkStream _networkStream;
         private StreamReader _streamReader;
         private StreamWriter _streamWriter;
-        private String _serverInput;
+        private string _serverOutput;
 
+        // Connects to hosting server
         public void Connect()
         {
             try
@@ -32,31 +34,33 @@ namespace WhereWeLivin.Network
             _streamWriter = new StreamWriter(_networkStream);
             
             Application.ApplicationExit += OnApplicationExit;
-
         }
 
+        // When application closes, tell the server client has disconnected and close socket
         private void OnApplicationExit(object sender, EventArgs e)
         {
-           WriteToServer("EXIT");
+            WriteToServer(GameInformation.Exit);
         }
 
-        public void WriteToServer(String message)
+        // Sends desired message to server from client
+        public void WriteToServer(string message)
         {
             _streamWriter.WriteLine(message);
             _streamWriter.Flush();
         }
 
+        // Reads incoming messages from server
         public void ReadFromServer()
         {
-            _serverInput = _streamReader.ReadLine();
+            _serverOutput = _streamReader.ReadLine();
             
-            if (_serverInput != null && _streamReader != null && _serverInput.Equals("START"))
+            if (_serverOutput != null && _streamReader != null)
             {
-                IncomingServerMessage?.Invoke();
+                IncomingServerMessage?.Invoke(_serverOutput);
             }
         }
 
-        public delegate void IncomingServerMessageHandler();
+        public delegate void IncomingServerMessageHandler(string serverInput);
         public event IncomingServerMessageHandler IncomingServerMessage;
         
     }

@@ -13,10 +13,22 @@ namespace WhereWeLivin.Pages
         
         public ServerEnter()
         {
+            Closed += (s, ev) =>
+            {
+                Application.ExitThread();
+                Environment.Exit(0);
+            };
+
+            FormClosed += (s, ev) =>
+            {
+                Application.ExitThread();
+                Environment.Exit(0);
+            };
+            
             InitializeComponent();
         }
 
-        // Checks if input fields are non-empty (valid)
+        // Checks if input fields are non-empty and in valid format
         private bool AreInputsValid()
         {
             if (portTextBox.Text.Equals("") || serverTextBox.Text.Equals(""))
@@ -50,8 +62,17 @@ namespace WhereWeLivin.Pages
             if (_gameClientForm == null)
             {
                 _gameClientForm = new GameClient();
-                _gameClientForm.Closed += (s, ev) => Application.Exit();
-                _gameClientForm.FormClosed += (s, ev) => Application.Exit();
+                _gameClientForm.Closed += (s, ev) =>
+                {
+                    Application.ExitThread();
+                    Environment.Exit(0);
+                };
+                
+                _gameClientForm.FormClosed += (s, ev) =>
+                {
+                    Application.ExitThread();
+                    Environment.Exit(0);
+                };
             }
             
             Hide();
@@ -67,8 +88,15 @@ namespace WhereWeLivin.Pages
             if (_hostForm == null)
             {
                 _hostForm = new HostEnter();
-                _hostForm.Closed += (s, ev) => Application.Exit();
-                _hostForm.FormClosed += (s, ev) => Application.Exit();
+                _hostForm.Closed += (s, ev) =>
+                {
+                    Application.ExitThread();
+                };
+                
+                _hostForm.FormClosed += (s, ev) =>
+                {
+                    Application.ExitThread();
+                };
             }
             
             Hide();

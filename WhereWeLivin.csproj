@@ -50,6 +50,12 @@
         <Compile Include="Src\Network\Client.cs" />
         <Compile Include="Src\Network\NetworkInformation.cs" />
         <Compile Include="Src\Network\Server.cs" />
+        <Compile Include="Src\Pages\EndScreen.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="Src\Pages\EndScreen.Designer.cs">
+          <DependentUpon>EndScreen.cs</DependentUpon>
+        </Compile>
         <Compile Include="Src\Pages\GameClient.cs">
           <SubType>Form</SubType>
         </Compile>
@@ -62,12 +68,6 @@
         </Compile>
         <Compile Include="Src\Pages\HostEnter.Designer.cs">
           <DependentUpon>HostEnter.cs</DependentUpon>
-        </Compile>
-        <Compile Include="Src\Pages\MainGame.cs">
-          <SubType>Form</SubType>
-        </Compile>
-        <Compile Include="Src\Pages\MainGame.Designer.cs">
-          <DependentUpon>MainGame.cs</DependentUpon>
         </Compile>
         <Compile Include="Src\Pages\TemplateForm.cs">
           <SubType>Form</SubType>
@@ -91,14 +91,14 @@
             <AutoGen>True</AutoGen>
             <DependentUpon>Resources.resx</DependentUpon>
         </Compile>
+        <EmbeddedResource Include="Src\Pages\EndScreen.resx">
+          <DependentUpon>EndScreen.cs</DependentUpon>
+        </EmbeddedResource>
         <EmbeddedResource Include="Src\Pages\GameClient.resx">
           <DependentUpon>GameClient.cs</DependentUpon>
         </EmbeddedResource>
         <EmbeddedResource Include="Src\Pages\HostEnter.resx">
           <DependentUpon>HostEnter.cs</DependentUpon>
-        </EmbeddedResource>
-        <EmbeddedResource Include="Src\Pages\MainGame.resx">
-          <DependentUpon>MainGame.cs</DependentUpon>
         </EmbeddedResource>
         <EmbeddedResource Include="Src\Pages\TemplateForm.resx">
           <DependentUpon>TemplateForm.cs</DependentUpon>

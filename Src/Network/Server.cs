@@ -1,76 +1,105 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using WhereWeLivin.Pages;
 
 namespace WhereWeLivin.Network
 {
     public class Server
     {
         private static readonly TcpListener TcpServer = new TcpListener(NetworkInformation.IpAddress, NetworkInformation.Port);
-        NetworkStream _networkStream;
-        StreamWriter _streamWriter;
-        StreamReader _streamReader;
+        private readonly List<TcpClient> _clientConnections = new List<TcpClient>();
 
-        private List<Socket> clientConnections = new List<Socket>();
+        public KeyValuePair<string, double> ChosenState;
+        public KeyValuePair<string, double> UpdatedState;
+        private double _stateScore = 0;
 
         private void Listening()
         {
-            Socket connectedClientSocket = TcpServer.AcceptSocket();
-            clientConnections.Add(connectedClientSocket);
+            var connectedClientSocket = TcpServer.AcceptTcpClient();
+            _clientConnections.Add(connectedClientSocket);
 
             if (connectedClientSocket.Connected)
             {
-                Console.WriteLine(@"Client:" + connectedClientSocket.RemoteEndPoint + @" now connected to server.");
-                OnClientJoin?.Invoke(connectedClientSocket.RemoteEndPoint);
+                Console.WriteLine(@"Client:" + connectedClientSocket.Client.RemoteEndPoint + @" now connected to server.");
+                OnClientJoin?.Invoke(connectedClientSocket);
             }
+
+            ReadFromAllClient(connectedClientSocket);
         }
 
+        // Starts server and makes a new thread for each client
         public void Start()
         {
             TcpServer.Start();
             
-            for (int i = 0; i < 2; i++)
+            for (var i = 0; i < 3; i++)
             {
-                Thread thread = new Thread(Listening);
-                thread.Start();
+                Task.Run(Listening);
             }
         }
 
-        public void WriteToAllClient()
+        // Sends desired message to ALL clients from server
+        public void WriteToAllClient(string message)
         {
-            foreach (var socket in clientConnections)
-            { 
-                _networkStream = new NetworkStream(socket);
-                _streamWriter = new StreamWriter(_networkStream);
-                
-                _streamWriter.WriteLine("START");
-                _streamWriter.Flush();
-            } 
+            foreach (var streamWriter in _clientConnections.Select(socket => socket.GetStream()).Select(networkStream => new StreamWriter(networkStream)))
+            {
+                streamWriter.WriteLine(message);
+                streamWriter.Flush();
+            }
         }
 
-        public void ReadFromAllClient()
+        // Reads inputs from ALL clients
+        private void ReadFromAllClient(TcpClient socket)
         {
-            foreach (var socket in clientConnections)
-            { 
-                _networkStream = new NetworkStream(socket);
-                _streamReader = new StreamReader(_networkStream);
-
-                if (_streamReader != null && _streamReader.ReadLine().Equals("EXIT"))
+            var networkStream = socket.GetStream();
+            var streamReader = new StreamReader(networkStream);
+            
+            while (socket.Connected)
+            {
+                string clientInput = streamReader.ReadLine();
+                
+                // Handles if client sends back disconnect
+                if (clientInput != null && clientInput.Equals(GameInformation.Exit))
                 {
-                    OnClientDisconnect?.Invoke(socket.RemoteEndPoint);
-                    break;
+                    _clientConnections.Remove(socket);
+                    OnClientDisconnect?.Invoke(socket);
+                    
+                    return;
                 }
 
-            } 
+                if (!ChosenState.IsNull())
+                {
+                    _stateScore += Convert.ToDouble(clientInput);
+                    var updatedState = new KeyValuePair<string, double>(ChosenState.Key, _stateScore);
+                    ChosenState = updatedState;
+                }
+
+                Console.WriteLine(Convert.ToDouble(clientInput));
+                OnClientServerReceieveMessage?.Invoke(socket);
+            }
+        }
+
+        public KeyValuePair<string, double> ReturnChosenState()
+        {
+            ChosenState = GameInformation.RandomPickState();
+            _stateScore = 0;
+            return ChosenState;
         }
         
-        public delegate void ClientJoinHandler(EndPoint endPoint);
+        public delegate void ClientJoinHandler(TcpClient tcpClient);
         public event ClientJoinHandler OnClientJoin;
         
-        public delegate void ClientDisconnectHandler(EndPoint endPoint);
+        public delegate void ClientDisconnectHandler(TcpClient tcpClient);
         public event ClientDisconnectHandler OnClientDisconnect;
+        
+        public delegate void ClientServerReceivedMessage(TcpClient tcpClient);
+        public event ClientServerReceivedMessage OnClientServerReceieveMessage;
     }
 }
