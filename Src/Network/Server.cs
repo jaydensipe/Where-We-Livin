@@ -1,14 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Net;
 using System.Net.Sockets;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Threading;
 using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Xml.Serialization;
 using Newtonsoft.Json;
 using WhereWeLivin.Pages;
 
@@ -22,6 +16,7 @@ namespace WhereWeLivin.Network
         public KeyValuePair<string, double> ChosenState;
         private double _stateScore;
 
+        // Begins listening for clients and adds them to connected clients list
         private void Listening()
         {
             var connectedClientSocket = TcpServer.AcceptTcpClient();
@@ -41,34 +36,25 @@ namespace WhereWeLivin.Network
         {
             TcpServer.Start();
             
+            // TODO: FINISH THIS
             for (var i = 0; i < 3; i++)
             {
                 Task.Run(Listening);
             }
         }
 
-        // Sends desired "string" message to ALL clients from server
+        // Sends desired "object" message to ALL clients from server as JSON
         public void WriteToAllClient(object message)
         {
-            foreach (var streamWriter in _clientConnections.Select(socket => socket.GetStream()).Select(networkStream => new StreamWriter(networkStream)))
+            foreach (var socket in _clientConnections)
             {
+                var networkStream = socket.GetStream();
+                var streamWriter = new StreamWriter(networkStream);
+                
                 streamWriter.WriteLine(JsonConvert.SerializeObject(message));
                 streamWriter.Flush();
             }
         }
-        
-        // Sends desired "object" to ALL clients from server
-        // public void WriteObjectToAllClient(List<KeyValuePair<string, double>> message)
-        // {
-        //     foreach (var socket in _clientConnections)
-        //     {
-        //         var networkStream = socket.GetStream();
-        //         var streamWriter = new StreamWriter(networkStream);
-        //
-        //         streamWriter.WriteLine(JsonConvert.SerializeObject(message));
-        //         streamWriter.Flush();
-        //     }
-        // }
 
         // Reads inputs from ALL clients
         private void ReadFromAllClient(TcpClient socket)
@@ -89,6 +75,7 @@ namespace WhereWeLivin.Network
                     return;
                 }
 
+                // Updates the chosen state's score everytime a user inputs
                 if (!ChosenState.IsNull())
                 {
                     _stateScore += Convert.ToDouble(clientInput);
@@ -96,11 +83,11 @@ namespace WhereWeLivin.Network
                     ChosenState = updatedState;
                 }
 
-                Console.WriteLine(Convert.ToDouble(clientInput));
                 OnClientServerReceieveMessage?.Invoke(socket);
             }
         }
 
+        // Picks a random state and returns it
         public KeyValuePair<string, double> ReturnChosenState()
         {
             ChosenState = GameInformation.RandomPickState();

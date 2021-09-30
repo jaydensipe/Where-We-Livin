@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Net;
 using System.Net.Sockets;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WhereWeLivin.Network;
 
@@ -28,9 +25,10 @@ namespace WhereWeLivin.Pages
             InitializeComponent();
         }
 
+        // Handles sending information needed to end game
         private void GameInformationOnEndGame()
         {
-            _server.WriteToAllClient(GameInformation.ReturnTopMostWantedStates());
+            _server.WriteToAllClient(GameInformation.ReturnsTopAndLeastMostWantedStates());
             _server.WriteToAllClient(GameInformation.End);
         }
 
@@ -92,13 +90,13 @@ namespace WhereWeLivin.Pages
                 GameInformation.RemovePickedState(_server.ChosenState);
             }
             
-            string response = GameInformation.NewRound;
-            _server.WriteToAllClient(response);
+            _server.WriteToAllClient(GameInformation.NewRound);
 
             var state = _server.ReturnChosenState();
             _server.WriteToAllClient(state.Key);
         }
         
+        // Starts a new round and resets client choices
         private void startButton_Click(object sender, EventArgs e)
         {
             if (!_gameStarted)

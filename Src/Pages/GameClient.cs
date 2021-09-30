@@ -1,15 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net;
-using System.Net.Sockets;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using Newtonsoft.Json.Serialization;
 using WhereWeLivin.Network;
 
 namespace WhereWeLivin.Pages
@@ -18,7 +11,8 @@ namespace WhereWeLivin.Pages
     {
         private readonly Client _client;
         private Form _endScreenForm;
-        private string _topAndLeastlist;
+        private string _topAndLeastJson;
+        
         private bool _waitingForHostStartGame = true;
 
         public GameClient()
@@ -39,6 +33,7 @@ namespace WhereWeLivin.Pages
             });
         }
         
+        // https://stackoverflow.com/questions/14977848/how-to-make-sure-that-string-is-valid-json-using-json-net
         private static bool IsValidJson(string strInput)
         {
             if (string.IsNullOrWhiteSpace(strInput)) { return false;}
@@ -73,9 +68,10 @@ namespace WhereWeLivin.Pages
         private void ClientOnIncomingServerMessage(string serverOutput)
         {
             
+            // If JSON is valid, this means this is our pure JSON input string for showing the list at the end
             if (IsValidJson(serverOutput))
             {
-                _topAndLeastlist = serverOutput;
+                _topAndLeastJson = serverOutput;
             }
 
             // Determine if server is starting new round and handle
@@ -92,8 +88,7 @@ namespace WhereWeLivin.Pages
                     ShowButtonsAndHideText(true);
                     return;
                 case GameInformation.End:
-                    Console.WriteLine("this is stop " + _topAndLeastlist);
-                    BeginInvoke(new MethodInvoker(() => EndGame(_topAndLeastlist)));
+                    BeginInvoke(new MethodInvoker(() => EndGame(_topAndLeastJson)));
                     return;
                 default:
                     stateContainer.Text = processedOutput + @"?";
@@ -102,10 +97,10 @@ namespace WhereWeLivin.Pages
             
         }
 
-        private void EndGame(string top10list)
+        private void EndGame(string jsonList)
         {
             
-            _endScreenForm = new EndScreen(top10list);
+            _endScreenForm = new EndScreen(jsonList);
             _endScreenForm.Closed += (s, ev) =>
             {
                 Application.ExitThread();

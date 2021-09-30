@@ -114,12 +114,13 @@
             this.Exit.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Exit.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Exit.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.Exit.Location = new System.Drawing.Point(357, 505);
+            this.Exit.Location = new System.Drawing.Point(375, 505);
             this.Exit.Name = "Exit";
             this.Exit.Size = new System.Drawing.Size(206, 53);
             this.Exit.TabIndex = 45;
-            this.Exit.Text = "Start Game";
+            this.Exit.Text = "Exit";
             this.Exit.UseVisualStyleBackColor = false;
+            this.Exit.Click += new System.EventHandler(this.Exit_Click);
             // 
             // top1
             // 
@@ -221,7 +222,7 @@
             this.top10.Text = "Massachussets - 10";
             this.top10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label3
+            // least10
             // 
             this.least10.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.least10.Location = new System.Drawing.Point(610, 600);
@@ -231,7 +232,7 @@
             this.least10.Text = "Massachussets - 10";
             this.least10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label4
+            // least9
             // 
             this.least9.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.least9.Location = new System.Drawing.Point(610, 559);
@@ -241,7 +242,7 @@
             this.least9.Text = "Massachussets - 10";
             this.least9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label5
+            // least8
             // 
             this.least8.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.least8.Location = new System.Drawing.Point(610, 518);
@@ -251,7 +252,7 @@
             this.least8.Text = "Massachussets - 10";
             this.least8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label6
+            // least7
             // 
             this.least7.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.least7.Location = new System.Drawing.Point(610, 477);
@@ -261,7 +262,7 @@
             this.least7.Text = "Massachussets - 10";
             this.least7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label7
+            // least6
             // 
             this.least6.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.least6.Location = new System.Drawing.Point(610, 436);
@@ -271,7 +272,7 @@
             this.least6.Text = "Massachussets - 10";
             this.least6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label8
+            // least5
             // 
             this.least5.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.least5.Location = new System.Drawing.Point(610, 395);
@@ -281,7 +282,7 @@
             this.least5.Text = "Massachussets - 10";
             this.least5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label9
+            // least4
             // 
             this.least4.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.least4.Location = new System.Drawing.Point(610, 354);
@@ -291,7 +292,7 @@
             this.least4.Text = "Massachussets - 10";
             this.least4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label10
+            // least3
             // 
             this.least3.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.least3.Location = new System.Drawing.Point(610, 313);
@@ -301,7 +302,7 @@
             this.least3.Text = "Massachussets - 10";
             this.least3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label11
+            // least2
             // 
             this.least2.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.least2.Location = new System.Drawing.Point(610, 272);
@@ -311,7 +312,7 @@
             this.least2.Text = "Massachussets - 10";
             this.least2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label12
+            // least1
             // 
             this.least1.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.least1.Location = new System.Drawing.Point(610, 231);

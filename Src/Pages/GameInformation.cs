@@ -10,7 +10,7 @@ namespace WhereWeLivin.Pages
         public const string Exit = "exit";
         public const string End = "end";
 
-        private static Dictionary<string, double> _stateStorage = new Dictionary<string, double>
+        private static readonly Dictionary<string, double> StateStorage = new Dictionary<string, double>
         {
             {"Florida", 0},
             {"New Jersey", 0},
@@ -43,37 +43,38 @@ namespace WhereWeLivin.Pages
             {"sdf7sdfsf", 0},
         };
 
-        private static List<KeyValuePair<string, double>> _pickedStates = new List<KeyValuePair<string, double>>();
+        private static readonly List<KeyValuePair<string, double>> PickedStates = new List<KeyValuePair<string, double>>();
 
+        // Picks a random state from SharedStates and returns it, also sends game end event if list is empty 
         public static KeyValuePair<string, double> RandomPickState()
         {
-            if (_stateStorage.Count == 0)
+            if (StateStorage.Count == 0)
             {
-                Console.WriteLine("ending");
                 OnEndGame?.Invoke();
                 return default;
             }
 
             var rand = new Random();
-            var randomSelection = _stateStorage.ToList()[rand.Next(_stateStorage.Count)];
+            var randomSelection = StateStorage.ToList()[rand.Next(StateStorage.Count)];
                 
-            Console.WriteLine(randomSelection);
             return randomSelection;
         }
 
-        public static List<KeyValuePair<string, double>> ReturnTopMostWantedStates()
+        // Returns a list containing the top 10 most wanted states, with the top 10 least wanted states concatenated to the end
+        public static List<KeyValuePair<string, double>> ReturnsTopAndLeastMostWantedStates()
         {
-            var top10List = _pickedStates.OrderByDescending(o => o.Value).Take(10).ToList();
-            var least10List = _pickedStates.OrderBy(o => o.Value).Take(10).ToList();
+            var top10List = PickedStates.OrderByDescending(o => o.Value).Take(10).ToList();
+            var least10List = PickedStates.OrderBy(o => o.Value).Take(10).ToList();
             top10List.AddRange(least10List);
             
             return top10List;
         }
 
+        // Removes picked state from state storage and adds to picked state list
         public static void RemovePickedState(KeyValuePair<string, double> pickedState)
         {
-            _stateStorage.Remove(pickedState.Key);
-            _pickedStates.Add(pickedState);
+            StateStorage.Remove(pickedState.Key);
+            PickedStates.Add(pickedState);
         }
         
         // https://stackoverflow.com/questions/1641392/the-default-for-keyvaluepair

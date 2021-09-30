@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Diagnostics;
 using System.IO;
-using System.Net;
 using System.Net.Sockets;
 using System.Windows.Forms;
 using WhereWeLivin.Pages;
@@ -36,7 +34,7 @@ namespace WhereWeLivin.Network
             Application.ApplicationExit += OnApplicationExit;
         }
 
-        // When application closes, tell the server client has disconnected and close socket
+        // When application closes, tell the server client has disconnected
         private void OnApplicationExit(object sender, EventArgs e)
         {
             WriteToServer(GameInformation.Exit);
