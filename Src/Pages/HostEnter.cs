@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Net;
 using System.Net.Sockets;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WhereWeLivin.Network;
@@ -29,7 +30,8 @@ namespace WhereWeLivin.Pages
 
         private void GameInformationOnEndGame()
         {
-            _server.WriteToAllClient("ended the game!");
+            _server.WriteToAllClient(GameInformation.ReturnTopMostWantedStates());
+            _server.WriteToAllClient(GameInformation.End);
         }
 
         private void ServerOnClientServerReceieveMessage(TcpClient tcpClient)
@@ -87,7 +89,6 @@ namespace WhereWeLivin.Pages
         {
             if (!_server.ChosenState.IsNull())
             {
-                Console.WriteLine(@"is null");
                 GameInformation.RemovePickedState(_server.ChosenState);
             }
             

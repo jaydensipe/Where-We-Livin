@@ -11,3 +11,7 @@ X:\CodingProjects\RiderProjects\WhereWeLivin\obj\Debug\WhereWeLivin.Pages.HostEn
 X:\CodingProjects\RiderProjects\WhereWeLivin\obj\Debug\WhereWeLivin.Pages.TemplateForm.resources
 X:\CodingProjects\RiderProjects\WhereWeLivin\obj\Debug\WhereWeLivin.Pages.ServerEnter.resources
 X:\CodingProjects\RiderProjects\WhereWeLivin\obj\Debug\WhereWeLivin.Pages.GameClient.resources
+X:\CodingProjects\RiderProjects\WhereWeLivin\obj\Debug\WhereWeLivin.Pages.EndScreen.resources
+X:\CodingProjects\RiderProjects\WhereWeLivin\bin\Debug\Newtonsoft.Json.dll
+X:\CodingProjects\RiderProjects\WhereWeLivin\bin\Debug\Newtonsoft.Json.xml
+X:\CodingProjects\RiderProjects\WhereWeLivin\obj\Debug\WhereWeLivin.csproj.CopyComplete

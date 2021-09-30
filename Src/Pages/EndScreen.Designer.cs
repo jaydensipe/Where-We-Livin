@@ -29,32 +29,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TemplateForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EndScreen));
             this.label1 = new System.Windows.Forms.Label();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.label2 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
             this.Exit = new System.Windows.Forms.Button();
+            this.top1 = new System.Windows.Forms.Label();
+            this.top2 = new System.Windows.Forms.Label();
+            this.top3 = new System.Windows.Forms.Label();
+            this.top4 = new System.Windows.Forms.Label();
+            this.top5 = new System.Windows.Forms.Label();
+            this.top6 = new System.Windows.Forms.Label();
+            this.top7 = new System.Windows.Forms.Label();
+            this.top8 = new System.Windows.Forms.Label();
+            this.top9 = new System.Windows.Forms.Label();
+            this.top10 = new System.Windows.Forms.Label();
+            this.least10 = new System.Windows.Forms.Label();
+            this.least9 = new System.Windows.Forms.Label();
+            this.least8 = new System.Windows.Forms.Label();
+            this.least7 = new System.Windows.Forms.Label();
+            this.least6 = new System.Windows.Forms.Label();
+            this.least5 = new System.Windows.Forms.Label();
+            this.least4 = new System.Windows.Forms.Label();
+            this.least3 = new System.Windows.Forms.Label();
+            this.least2 = new System.Windows.Forms.Label();
+            this.least1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -83,7 +84,7 @@
             // 
             // label22
             // 
-            this.label22.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.Image = ((System.Drawing.Image)(resources.GetObject("label22.Image")));
             this.label22.Location = new System.Drawing.Point(43, 124);
             this.label22.Name = "label22";
@@ -94,7 +95,7 @@
             // 
             // label23
             // 
-            this.label23.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.Image = ((System.Drawing.Image)(resources.GetObject("label23.Image")));
             this.label23.Location = new System.Drawing.Point(581, 123);
             this.label23.Name = "label23";
@@ -102,196 +103,6 @@
             this.label23.TabIndex = 25;
             this.label23.Text = "Least Picked States";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label3
-            // 
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(101, 267);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(206, 43);
-            this.label3.TabIndex = 26;
-            this.label3.Text = "Florida";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label4
-            // 
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(101, 298);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(206, 43);
-            this.label4.TabIndex = 27;
-            this.label4.Text = "Florida";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label5
-            // 
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(101, 329);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(206, 43);
-            this.label5.TabIndex = 28;
-            this.label5.Text = "Florida";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label6
-            // 
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(101, 360);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(206, 43);
-            this.label6.TabIndex = 29;
-            this.label6.Text = "Florida";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label7
-            // 
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(101, 422);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(206, 43);
-            this.label7.TabIndex = 30;
-            this.label7.Text = "Florida";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label8
-            // 
-            this.label8.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(101, 391);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(206, 43);
-            this.label8.TabIndex = 31;
-            this.label8.Text = "Florida";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label9
-            // 
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(101, 453);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(206, 43);
-            this.label9.TabIndex = 32;
-            this.label9.Text = "Florida";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label10
-            // 
-            this.label10.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(101, 484);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(206, 43);
-            this.label10.TabIndex = 33;
-            this.label10.Text = "Florida";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label11
-            // 
-            this.label11.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(101, 515);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(206, 43);
-            this.label11.TabIndex = 34;
-            this.label11.Text = "Florida";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label12
-            // 
-            this.label12.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(642, 515);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(206, 43);
-            this.label12.TabIndex = 44;
-            this.label12.Text = "Florida";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label13
-            // 
-            this.label13.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(642, 484);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(206, 43);
-            this.label13.TabIndex = 43;
-            this.label13.Text = "Florida";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label14
-            // 
-            this.label14.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(642, 453);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(206, 43);
-            this.label14.TabIndex = 42;
-            this.label14.Text = "Florida";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label15
-            // 
-            this.label15.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(642, 391);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(206, 43);
-            this.label15.TabIndex = 41;
-            this.label15.Text = "Florida";
-            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label16
-            // 
-            this.label16.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(642, 422);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(206, 43);
-            this.label16.TabIndex = 40;
-            this.label16.Text = "Florida";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label17
-            // 
-            this.label17.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(642, 360);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(206, 43);
-            this.label17.TabIndex = 39;
-            this.label17.Text = "Florida";
-            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label18
-            // 
-            this.label18.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(642, 329);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(206, 43);
-            this.label18.TabIndex = 38;
-            this.label18.Text = "Florida";
-            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label19
-            // 
-            this.label19.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(642, 298);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(206, 43);
-            this.label19.TabIndex = 37;
-            this.label19.Text = "Florida";
-            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label20
-            // 
-            this.label20.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(642, 267);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(206, 43);
-            this.label20.TabIndex = 36;
-            this.label20.Text = "Florida";
-            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label21
-            // 
-            this.label21.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(642, 236);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(206, 43);
-            this.label21.TabIndex = 35;
-            this.label21.Text = "Florida";
-            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Exit
             // 
@@ -310,31 +121,232 @@
             this.Exit.Text = "Start Game";
             this.Exit.UseVisualStyleBackColor = false;
             // 
-            // TemplateForm
+            // top1
+            // 
+            this.top1.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.top1.Location = new System.Drawing.Point(67, 230);
+            this.top1.Name = "top1";
+            this.top1.Size = new System.Drawing.Size(276, 41);
+            this.top1.TabIndex = 50;
+            this.top1.Text = "Massachussets - 10";
+            this.top1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // top2
+            // 
+            this.top2.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.top2.Location = new System.Drawing.Point(67, 271);
+            this.top2.Name = "top2";
+            this.top2.Size = new System.Drawing.Size(276, 41);
+            this.top2.TabIndex = 51;
+            this.top2.Text = "Massachussets - 10";
+            this.top2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // top3
+            // 
+            this.top3.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.top3.Location = new System.Drawing.Point(67, 312);
+            this.top3.Name = "top3";
+            this.top3.Size = new System.Drawing.Size(276, 41);
+            this.top3.TabIndex = 52;
+            this.top3.Text = "Massachussets - 10";
+            this.top3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // top4
+            // 
+            this.top4.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.top4.Location = new System.Drawing.Point(67, 353);
+            this.top4.Name = "top4";
+            this.top4.Size = new System.Drawing.Size(276, 41);
+            this.top4.TabIndex = 53;
+            this.top4.Text = "Massachussets - 10";
+            this.top4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // top5
+            // 
+            this.top5.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.top5.Location = new System.Drawing.Point(67, 394);
+            this.top5.Name = "top5";
+            this.top5.Size = new System.Drawing.Size(276, 41);
+            this.top5.TabIndex = 54;
+            this.top5.Text = "Massachussets - 10";
+            this.top5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // top6
+            // 
+            this.top6.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.top6.Location = new System.Drawing.Point(67, 435);
+            this.top6.Name = "top6";
+            this.top6.Size = new System.Drawing.Size(276, 41);
+            this.top6.TabIndex = 55;
+            this.top6.Text = "Massachussets - 10";
+            this.top6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // top7
+            // 
+            this.top7.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.top7.Location = new System.Drawing.Point(67, 476);
+            this.top7.Name = "top7";
+            this.top7.Size = new System.Drawing.Size(276, 41);
+            this.top7.TabIndex = 56;
+            this.top7.Text = "Massachussets - 10";
+            this.top7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // top8
+            // 
+            this.top8.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.top8.Location = new System.Drawing.Point(67, 517);
+            this.top8.Name = "top8";
+            this.top8.Size = new System.Drawing.Size(276, 41);
+            this.top8.TabIndex = 57;
+            this.top8.Text = "Massachussets - 10";
+            this.top8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // top9
+            // 
+            this.top9.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.top9.Location = new System.Drawing.Point(67, 558);
+            this.top9.Name = "top9";
+            this.top9.Size = new System.Drawing.Size(276, 41);
+            this.top9.TabIndex = 58;
+            this.top9.Text = "Massachussets - 10";
+            this.top9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // top10
+            // 
+            this.top10.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.top10.Location = new System.Drawing.Point(67, 599);
+            this.top10.Name = "top10";
+            this.top10.Size = new System.Drawing.Size(276, 41);
+            this.top10.TabIndex = 59;
+            this.top10.Text = "Massachussets - 10";
+            this.top10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.least10.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.least10.Location = new System.Drawing.Point(610, 600);
+            this.least10.Name = "least10";
+            this.least10.Size = new System.Drawing.Size(276, 41);
+            this.least10.TabIndex = 69;
+            this.least10.Text = "Massachussets - 10";
+            this.least10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label4
+            // 
+            this.least9.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.least9.Location = new System.Drawing.Point(610, 559);
+            this.least9.Name = "least9";
+            this.least9.Size = new System.Drawing.Size(276, 41);
+            this.least9.TabIndex = 68;
+            this.least9.Text = "Massachussets - 10";
+            this.least9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label5
+            // 
+            this.least8.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.least8.Location = new System.Drawing.Point(610, 518);
+            this.least8.Name = "least8";
+            this.least8.Size = new System.Drawing.Size(276, 41);
+            this.least8.TabIndex = 67;
+            this.least8.Text = "Massachussets - 10";
+            this.least8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label6
+            // 
+            this.least7.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.least7.Location = new System.Drawing.Point(610, 477);
+            this.least7.Name = "least7";
+            this.least7.Size = new System.Drawing.Size(276, 41);
+            this.least7.TabIndex = 66;
+            this.least7.Text = "Massachussets - 10";
+            this.least7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label7
+            // 
+            this.least6.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.least6.Location = new System.Drawing.Point(610, 436);
+            this.least6.Name = "least6";
+            this.least6.Size = new System.Drawing.Size(276, 41);
+            this.least6.TabIndex = 65;
+            this.least6.Text = "Massachussets - 10";
+            this.least6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label8
+            // 
+            this.least5.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.least5.Location = new System.Drawing.Point(610, 395);
+            this.least5.Name = "least5";
+            this.least5.Size = new System.Drawing.Size(276, 41);
+            this.least5.TabIndex = 64;
+            this.least5.Text = "Massachussets - 10";
+            this.least5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label9
+            // 
+            this.least4.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.least4.Location = new System.Drawing.Point(610, 354);
+            this.least4.Name = "least4";
+            this.least4.Size = new System.Drawing.Size(276, 41);
+            this.least4.TabIndex = 63;
+            this.least4.Text = "Massachussets - 10";
+            this.least4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label10
+            // 
+            this.least3.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.least3.Location = new System.Drawing.Point(610, 313);
+            this.least3.Name = "least3";
+            this.least3.Size = new System.Drawing.Size(276, 41);
+            this.least3.TabIndex = 62;
+            this.least3.Text = "Massachussets - 10";
+            this.least3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label11
+            // 
+            this.least2.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.least2.Location = new System.Drawing.Point(610, 272);
+            this.least2.Name = "least2";
+            this.least2.Size = new System.Drawing.Size(276, 41);
+            this.least2.TabIndex = 61;
+            this.least2.Text = "Massachussets - 10";
+            this.least2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label12
+            // 
+            this.least1.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.least1.Location = new System.Drawing.Point(610, 231);
+            this.least1.Name = "least1";
+            this.least1.Size = new System.Drawing.Size(276, 41);
+            this.least1.TabIndex = 60;
+            this.least1.Text = "Massachussets - 10";
+            this.least1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // EndScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 653);
+            this.ClientSize = new System.Drawing.Size(984, 730);
+            this.Controls.Add(this.least10);
+            this.Controls.Add(this.least9);
+            this.Controls.Add(this.least8);
+            this.Controls.Add(this.least7);
+            this.Controls.Add(this.least6);
+            this.Controls.Add(this.least5);
+            this.Controls.Add(this.least4);
+            this.Controls.Add(this.least3);
+            this.Controls.Add(this.least2);
+            this.Controls.Add(this.least1);
+            this.Controls.Add(this.top10);
+            this.Controls.Add(this.top9);
+            this.Controls.Add(this.top8);
+            this.Controls.Add(this.top7);
+            this.Controls.Add(this.top6);
+            this.Controls.Add(this.top5);
+            this.Controls.Add(this.top4);
+            this.Controls.Add(this.top3);
+            this.Controls.Add(this.top2);
+            this.Controls.Add(this.top1);
             this.Controls.Add(this.Exit);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.label15);
-            this.Controls.Add(this.label16);
-            this.Controls.Add(this.label17);
-            this.Controls.Add(this.label18);
-            this.Controls.Add(this.label19);
-            this.Controls.Add(this.label20);
-            this.Controls.Add(this.label21);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label23);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.label1);
@@ -342,34 +354,42 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "TemplateForm";
+            this.Name = "EndScreen";
             this.Text = "WhereWeLivin";
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.Label least10;
+        private System.Windows.Forms.Label least9;
+        private System.Windows.Forms.Label least8;
+        private System.Windows.Forms.Label least7;
+        private System.Windows.Forms.Label least6;
+        private System.Windows.Forms.Label least5;
+        private System.Windows.Forms.Label least4;
+        private System.Windows.Forms.Label least3;
+        private System.Windows.Forms.Label least2;
+        private System.Windows.Forms.Label least1;
+
+        private System.Windows.Forms.Label top2;
+        private System.Windows.Forms.Label top3;
+        private System.Windows.Forms.Label top4;
+        private System.Windows.Forms.Label top5;
+        private System.Windows.Forms.Label top6;
+        private System.Windows.Forms.Label top7;
+        private System.Windows.Forms.Label top8;
+        private System.Windows.Forms.Label top9;
+        private System.Windows.Forms.Label top10;
+
+        private System.Windows.Forms.Label top1;
+
+        private System.Windows.Forms.Label waitingForHostText;
+
+        private System.Windows.Forms.Label label24;
 
         private System.Windows.Forms.Button Exit;
 
         private System.Windows.Forms.Label label23;
 
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
 
         private System.Windows.Forms.Label label2;

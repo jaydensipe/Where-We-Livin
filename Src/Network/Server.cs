@@ -4,9 +4,12 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
+using Newtonsoft.Json;
 using WhereWeLivin.Pages;
 
 namespace WhereWeLivin.Network
@@ -17,8 +20,7 @@ namespace WhereWeLivin.Network
         private readonly List<TcpClient> _clientConnections = new List<TcpClient>();
 
         public KeyValuePair<string, double> ChosenState;
-        public KeyValuePair<string, double> UpdatedState;
-        private double _stateScore = 0;
+        private double _stateScore;
 
         private void Listening()
         {
@@ -45,15 +47,28 @@ namespace WhereWeLivin.Network
             }
         }
 
-        // Sends desired message to ALL clients from server
-        public void WriteToAllClient(string message)
+        // Sends desired "string" message to ALL clients from server
+        public void WriteToAllClient(object message)
         {
             foreach (var streamWriter in _clientConnections.Select(socket => socket.GetStream()).Select(networkStream => new StreamWriter(networkStream)))
             {
-                streamWriter.WriteLine(message);
+                streamWriter.WriteLine(JsonConvert.SerializeObject(message));
                 streamWriter.Flush();
             }
         }
+        
+        // Sends desired "object" to ALL clients from server
+        // public void WriteObjectToAllClient(List<KeyValuePair<string, double>> message)
+        // {
+        //     foreach (var socket in _clientConnections)
+        //     {
+        //         var networkStream = socket.GetStream();
+        //         var streamWriter = new StreamWriter(networkStream);
+        //
+        //         streamWriter.WriteLine(JsonConvert.SerializeObject(message));
+        //         streamWriter.Flush();
+        //     }
+        // }
 
         // Reads inputs from ALL clients
         private void ReadFromAllClient(TcpClient socket)
