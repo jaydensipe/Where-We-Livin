@@ -1,8 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Net.Sockets;
-using System.Windows.Forms;
-using WhereWeLivin.Pages;
 
 namespace WhereWeLivin.Network
 {
@@ -30,14 +28,6 @@ namespace WhereWeLivin.Network
             _networkStream = _tcpClient.GetStream();
             _streamReader = new StreamReader(_networkStream);
             _streamWriter = new StreamWriter(_networkStream);
-            
-            Application.ApplicationExit += OnApplicationExit;
-        }
-
-        // When application closes, tell the server client has disconnected
-        private void OnApplicationExit(object sender, EventArgs e)
-        {
-            WriteToServer(GameInformation.Exit);
         }
 
         // Sends desired message to server from client

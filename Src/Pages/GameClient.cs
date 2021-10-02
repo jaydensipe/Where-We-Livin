@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Drawing;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
@@ -23,7 +25,8 @@ namespace WhereWeLivin.Pages
             _client.IncomingServerMessage += ClientOnIncomingServerMessage;
             
             InitializeComponent();
-
+            hidePanel.BringToFront();
+            
             Task.Run(() =>
             {
                 while (true)
@@ -32,7 +35,13 @@ namespace WhereWeLivin.Pages
                 }
             });
         }
-        
+
+        // Sends to server when the client closes their application
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            _client.WriteToServer(GameInformation.Exit);
+        }
+
         // https://stackoverflow.com/questions/14977848/how-to-make-sure-that-string-is-valid-json-using-json-net
         private static bool IsValidJson(string strInput)
         {
@@ -67,11 +76,11 @@ namespace WhereWeLivin.Pages
         // Handles incoming outputs from server
         private void ClientOnIncomingServerMessage(string serverOutput)
         {
-            
             // If JSON is valid, this means this is our pure JSON input string for showing the list at the end
             if (IsValidJson(serverOutput))
             {
                 _topAndLeastJson = serverOutput;
+                return;
             }
 
             // Determine if server is starting new round and handle
@@ -92,6 +101,15 @@ namespace WhereWeLivin.Pages
                     return;
                 default:
                     stateContainer.Text = processedOutput + @"?";
+                    
+                    if (File.Exists($"Images/{processedOutput}scenery/Image_1.png"))
+                    {
+                        pictureBox.BackgroundImage = Image.FromFile($"Images/{processedOutput}scenery/Image_1.png");
+                    }
+                    else
+                    {
+                        pictureBox.BackgroundImage = Image.FromFile($"Images/{processedOutput}scenery/Image_1.jpg");
+                    }
                     break;
             }
             

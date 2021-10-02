@@ -15,6 +15,18 @@ namespace WhereWeLivin.Network
 
         public KeyValuePair<string, double> ChosenState;
         private double _stateScore;
+        
+        // Starts server and makes a new thread for each client
+        public void Start()
+        {
+            TcpServer.Start();
+            
+            // TODO: FINISH THIS
+            for (var i = 0; i < 3; i++)
+            {
+                Task.Run(Listening);
+            }
+        }
 
         // Begins listening for clients and adds them to connected clients list
         private void Listening()
@@ -28,24 +40,14 @@ namespace WhereWeLivin.Network
                 OnClientJoin?.Invoke(connectedClientSocket);
             }
 
+            // Start reading from all clients
             ReadFromAllClient(connectedClientSocket);
-        }
-
-        // Starts server and makes a new thread for each client
-        public void Start()
-        {
-            TcpServer.Start();
-            
-            // TODO: FINISH THIS
-            for (var i = 0; i < 3; i++)
-            {
-                Task.Run(Listening);
-            }
         }
 
         // Sends desired "object" message to ALL clients from server as JSON
         public void WriteToAllClient(object message)
         {
+            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
             foreach (var socket in _clientConnections)
             {
                 var networkStream = socket.GetStream();
@@ -66,25 +68,30 @@ namespace WhereWeLivin.Network
             {
                 string clientInput = streamReader.ReadLine();
                 
-                // Handles if client sends back disconnect
-                if (clientInput != null && clientInput.Equals(GameInformation.Exit))
-                {
-                    _clientConnections.Remove(socket);
-                    OnClientDisconnect?.Invoke(socket);
-                    
-                    return;
-                }
-
-                // Updates the chosen state's score everytime a user inputs
-                if (!ChosenState.IsNull())
-                {
-                    _stateScore += Convert.ToDouble(clientInput);
-                    var updatedState = new KeyValuePair<string, double>(ChosenState.Key, _stateScore);
-                    ChosenState = updatedState;
-                }
+                HandleDisconnects(clientInput, socket);
+                UpdateState(clientInput);
 
                 OnClientServerReceieveMessage?.Invoke(socket);
             }
+        }
+
+        private void HandleDisconnects(string clientInput, TcpClient socket)
+        {
+            // Handles if client sends back disconnect
+            if (clientInput == null || !clientInput.Equals(GameInformation.Exit)) return;
+            
+            _clientConnections.Remove(socket);
+            OnClientDisconnect?.Invoke(socket);
+        }
+
+        private void UpdateState(string clientInput)
+        {
+            // Updates the chosen state's score everytime a user inputs
+            if (ChosenState.IsNull()) return;
+            
+            _stateScore += Convert.ToDouble(clientInput);
+            var updatedState = new KeyValuePair<string, double>(ChosenState.Key, _stateScore);
+            ChosenState = updatedState;
         }
 
         // Picks a random state and returns it

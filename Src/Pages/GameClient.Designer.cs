@@ -36,11 +36,11 @@
             this.maybeButton = new System.Windows.Forms.Button();
             this.noButton = new System.Windows.Forms.Button();
             this.waitLabel = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.hidePanel = new System.Windows.Forms.Panel();
             this.waitingForHostText = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.hidePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -60,7 +60,7 @@
             // stateContainer
             // 
             this.stateContainer.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stateContainer.Location = new System.Drawing.Point(396, 425);
+            this.stateContainer.Location = new System.Drawing.Point(392, 482);
             this.stateContainer.Name = "stateContainer";
             this.stateContainer.Size = new System.Drawing.Size(288, 103);
             this.stateContainer.TabIndex = 3;
@@ -78,7 +78,7 @@
             this.yesButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.yesButton.Image = ((System.Drawing.Image)(resources.GetObject("yesButton.Image")));
             this.yesButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.yesButton.Location = new System.Drawing.Point(74, 564);
+            this.yesButton.Location = new System.Drawing.Point(73, 588);
             this.yesButton.Name = "yesButton";
             this.yesButton.Size = new System.Drawing.Size(206, 53);
             this.yesButton.TabIndex = 6;
@@ -97,7 +97,7 @@
             this.maybeButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.maybeButton.Image = ((System.Drawing.Image)(resources.GetObject("maybeButton.Image")));
             this.maybeButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.maybeButton.Location = new System.Drawing.Point(427, 564);
+            this.maybeButton.Location = new System.Drawing.Point(428, 588);
             this.maybeButton.Name = "maybeButton";
             this.maybeButton.Size = new System.Drawing.Size(206, 53);
             this.maybeButton.TabIndex = 7;
@@ -116,7 +116,7 @@
             this.noButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.noButton.Image = ((System.Drawing.Image)(resources.GetObject("noButton.Image")));
             this.noButton.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.noButton.Location = new System.Drawing.Point(785, 564);
+            this.noButton.Location = new System.Drawing.Point(784, 588);
             this.noButton.Name = "noButton";
             this.noButton.Size = new System.Drawing.Size(206, 53);
             this.noButton.TabIndex = 8;
@@ -127,7 +127,7 @@
             // waitLabel
             // 
             this.waitLabel.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.waitLabel.Location = new System.Drawing.Point(256, 541);
+            this.waitLabel.Location = new System.Drawing.Point(255, 565);
             this.waitLabel.Name = "waitLabel";
             this.waitLabel.Size = new System.Drawing.Size(566, 103);
             this.waitLabel.TabIndex = 9;
@@ -135,22 +135,13 @@
             this.waitLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.waitLabel.Visible = false;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.ImageLocation = "https://www.boston.com/wp-content/uploads/2020/12/Coronavirus-Map-Dec.-24-relativ" + "e-change-5feb756eb1b7f.jpg";
-            this.pictureBox1.Location = new System.Drawing.Point(256, 140);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(564, 308);
-            this.pictureBox1.TabIndex = 10;
-            this.pictureBox1.TabStop = false;
-            // 
             // hidePanel
             // 
             this.hidePanel.Controls.Add(this.waitingForHostText);
             this.hidePanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.hidePanel.Location = new System.Drawing.Point(0, 109);
             this.hidePanel.Name = "hidePanel";
-            this.hidePanel.Size = new System.Drawing.Size(1082, 579);
+            this.hidePanel.Size = new System.Drawing.Size(1082, 626);
             this.hidePanel.TabIndex = 11;
             // 
             // waitingForHostText
@@ -163,13 +154,24 @@
             this.waitingForHostText.Text = "Connection Successful! Waiting for host to begin...";
             this.waitingForHostText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // pictureBox
+            // 
+            this.pictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox.Location = new System.Drawing.Point(187, 137);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(685, 353);
+            this.pictureBox.TabIndex = 12;
+            this.pictureBox.TabStop = false;
+            this.pictureBox.Controls.Add(hidePanel);
+            // 
             // GameClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1082, 688);
+            this.ClientSize = new System.Drawing.Size(1082, 735);
+            this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.hidePanel);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.waitLabel);
             this.Controls.Add(this.noButton);
             this.Controls.Add(this.maybeButton);
@@ -182,17 +184,17 @@
             this.MinimizeBox = false;
             this.Name = "GameClient";
             this.Text = "WhereWeLivin";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.hidePanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.PictureBox pictureBox;
 
         private System.Windows.Forms.Label waitingForHostText;
 
         private System.Windows.Forms.Panel hidePanel;
-
-        private System.Windows.Forms.PictureBox pictureBox1;
-
+        
         private System.Windows.Forms.Label waitLabel;
 
         private System.Windows.Forms.Button yesButton;
