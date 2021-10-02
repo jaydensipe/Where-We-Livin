@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="UserContentModel">
+    <attachedFolders>
+      <Path>bin/Debug/Images</Path>
+    </attachedFolders>
+    <explicitIncludes>
+      <Path>Src/Images</Path>
+    </explicitIncludes>
+    <explicitExcludes />
+  </component>
+</project>
