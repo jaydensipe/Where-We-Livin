@@ -35,7 +35,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This is an application (that plays like a game) that allows you to go through all 50 U.S. states and vote "Yes", "Maybe", "No" on them and see the most picked and least picked results at the end. 
+This is an application (that plays like a game) that allows you to go through all 50 U.S. states and vote "Yes", "Maybe" or "No" on them and see the most picked and least picked results at the end. 
 It can be played both singleplayer and multiplayer.
 
 When talking with friends or family about the future, a topic that comes up a lot is potential places everyone would want to move to. I've always wanted an easy way to compile
@@ -82,7 +82,7 @@ This application requires a server and a client to function. This section will s
 
 [![Image from Gyazo](https://i.gyazo.com/10ab446c531c1428230c22031e37bd55.png)](https://gyazo.com/10ab446c531c1428230c22031e37bd55)
 
-3. When the host starts the game, you will be greeted with a U.S. state and the options "Yes", "Maybe", "No". These answers correspond to whatever reason you have for playing.
+3. When the host starts the game, you will be greeted with a U.S. state and the options "Yes", "Maybe" or "No". These answers correspond to whatever reason you have for playing.
 
 [![Image from Gyazo](https://i.gyazo.com/b2f7a3235e6065940998a0fa4ba19937.png)](https://gyazo.com/b2f7a3235e6065940998a0fa4ba19937)
 [![Image from Gyazo](https://i.gyazo.com/00e22bd9750452638645934e96420f19.png)](https://gyazo.com/00e22bd9750452638645934e96420f19)
