@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Net.Sockets;
+using System.Windows.Forms;
 
 namespace WhereWeLivin.Network
 {
@@ -15,13 +16,15 @@ namespace WhereWeLivin.Network
         // Connects to hosting server
         public void Connect()
         {
+            
             try
             {
                 _tcpClient = new TcpClient(NetworkInformation.IpAddress.ToString(), NetworkInformation.Port);
             }
-            catch (Exception e)
+            catch(Exception)
             {
-                Console.WriteLine(e);
+                MessageBox.Show(@"Could not connect to server!", @"ERROR", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw;
             }
             

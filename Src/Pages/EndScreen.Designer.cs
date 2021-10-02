@@ -56,6 +56,7 @@
             this.least3 = new System.Windows.Forms.Label();
             this.least2 = new System.Windows.Forms.Label();
             this.least1 = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // label1
@@ -86,9 +87,9 @@
             // 
             this.label22.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.Image = ((System.Drawing.Image)(resources.GetObject("label22.Image")));
-            this.label22.Location = new System.Drawing.Point(43, 124);
+            this.label22.Location = new System.Drawing.Point(67, 124);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(337, 106);
+            this.label22.Size = new System.Drawing.Size(308, 106);
             this.label22.TabIndex = 24;
             this.label22.Text = "Most Picked States";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -97,9 +98,9 @@
             // 
             this.label23.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.Image = ((System.Drawing.Image)(resources.GetObject("label23.Image")));
-            this.label23.Location = new System.Drawing.Point(581, 123);
+            this.label23.Location = new System.Drawing.Point(606, 123);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(337, 108);
+            this.label23.Size = new System.Drawing.Size(318, 108);
             this.label23.TabIndex = 25;
             this.label23.Text = "Least Picked States";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -114,11 +115,11 @@
             this.Exit.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Exit.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Exit.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.Exit.Location = new System.Drawing.Point(375, 505);
+            this.Exit.Location = new System.Drawing.Point(330, 731);
             this.Exit.Name = "Exit";
-            this.Exit.Size = new System.Drawing.Size(206, 53);
+            this.Exit.Size = new System.Drawing.Size(327, 53);
             this.Exit.TabIndex = 45;
-            this.Exit.Text = "Exit";
+            this.Exit.Text = "Exit Program";
             this.Exit.UseVisualStyleBackColor = false;
             this.Exit.Click += new System.EventHandler(this.Exit_Click);
             // 
@@ -225,7 +226,7 @@
             // least10
             // 
             this.least10.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.least10.Location = new System.Drawing.Point(610, 600);
+            this.least10.Location = new System.Drawing.Point(620, 599);
             this.least10.Name = "least10";
             this.least10.Size = new System.Drawing.Size(276, 41);
             this.least10.TabIndex = 69;
@@ -235,7 +236,7 @@
             // least9
             // 
             this.least9.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.least9.Location = new System.Drawing.Point(610, 559);
+            this.least9.Location = new System.Drawing.Point(620, 558);
             this.least9.Name = "least9";
             this.least9.Size = new System.Drawing.Size(276, 41);
             this.least9.TabIndex = 68;
@@ -245,7 +246,7 @@
             // least8
             // 
             this.least8.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.least8.Location = new System.Drawing.Point(610, 518);
+            this.least8.Location = new System.Drawing.Point(620, 517);
             this.least8.Name = "least8";
             this.least8.Size = new System.Drawing.Size(276, 41);
             this.least8.TabIndex = 67;
@@ -255,7 +256,7 @@
             // least7
             // 
             this.least7.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.least7.Location = new System.Drawing.Point(610, 477);
+            this.least7.Location = new System.Drawing.Point(620, 476);
             this.least7.Name = "least7";
             this.least7.Size = new System.Drawing.Size(276, 41);
             this.least7.TabIndex = 66;
@@ -265,7 +266,7 @@
             // least6
             // 
             this.least6.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.least6.Location = new System.Drawing.Point(610, 436);
+            this.least6.Location = new System.Drawing.Point(620, 435);
             this.least6.Name = "least6";
             this.least6.Size = new System.Drawing.Size(276, 41);
             this.least6.TabIndex = 65;
@@ -275,7 +276,7 @@
             // least5
             // 
             this.least5.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.least5.Location = new System.Drawing.Point(610, 395);
+            this.least5.Location = new System.Drawing.Point(620, 394);
             this.least5.Name = "least5";
             this.least5.Size = new System.Drawing.Size(276, 41);
             this.least5.TabIndex = 64;
@@ -285,7 +286,7 @@
             // least4
             // 
             this.least4.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.least4.Location = new System.Drawing.Point(610, 354);
+            this.least4.Location = new System.Drawing.Point(620, 353);
             this.least4.Name = "least4";
             this.least4.Size = new System.Drawing.Size(276, 41);
             this.least4.TabIndex = 63;
@@ -295,7 +296,7 @@
             // least3
             // 
             this.least3.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.least3.Location = new System.Drawing.Point(610, 313);
+            this.least3.Location = new System.Drawing.Point(620, 312);
             this.least3.Name = "least3";
             this.least3.Size = new System.Drawing.Size(276, 41);
             this.least3.TabIndex = 62;
@@ -305,7 +306,7 @@
             // least2
             // 
             this.least2.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.least2.Location = new System.Drawing.Point(610, 272);
+            this.least2.Location = new System.Drawing.Point(620, 271);
             this.least2.Name = "least2";
             this.least2.Size = new System.Drawing.Size(276, 41);
             this.least2.TabIndex = 61;
@@ -315,18 +316,32 @@
             // least1
             // 
             this.least1.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.least1.Location = new System.Drawing.Point(610, 231);
+            this.least1.Location = new System.Drawing.Point(620, 230);
             this.least1.Name = "least1";
             this.least1.Size = new System.Drawing.Size(276, 41);
             this.least1.TabIndex = 60;
             this.least1.Text = "Massachussets - 10";
             this.least1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.Location = new System.Drawing.Point(0, 641);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(984, 87);
+            this.linkLabel1.TabIndex = 70;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Thanks for playing! Come check me out on GitHub! @jaydensipe";
+            this.linkLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // EndScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 730);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ClientSize = new System.Drawing.Size(984, 806);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.least10);
             this.Controls.Add(this.least9);
             this.Controls.Add(this.least8);
@@ -351,6 +366,7 @@
             this.Controls.Add(this.label23);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.label1);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -359,6 +375,8 @@
             this.Text = "WhereWeLivin";
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.LinkLabel linkLabel1;
 
         private System.Windows.Forms.Label least10;
         private System.Windows.Forms.Label least9;

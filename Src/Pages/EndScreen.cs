@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 
@@ -42,8 +44,22 @@ namespace WhereWeLivin.Pages
 
         private void Exit_Click(object sender, EventArgs e)
         {
+            // https://stackoverflow.com/questions/13026269/exit-all-instances-of-my-app
+            var current = Process.GetCurrentProcess();
+            Process.GetProcessesByName(current.ProcessName)
+                .Where(t => t.Id != current.Id)
+                .ToList()
+                .ForEach(t => t.Kill());
+
+            current.Kill();
+            
             Application.ExitThread();
             Environment.Exit(0);
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://jaydensipe.github.io/");
         }
     }
 }

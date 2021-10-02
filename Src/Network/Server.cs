@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net.Sockets;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Newtonsoft.Json;
 using WhereWeLivin.Pages;
 
@@ -11,35 +12,40 @@ namespace WhereWeLivin.Network
     public class Server
     {
         private static readonly TcpListener TcpServer = new TcpListener(NetworkInformation.IpAddress, NetworkInformation.Port);
-        private readonly List<TcpClient> _clientConnections = new List<TcpClient>();
+        public readonly List<TcpClient> ClientConnections = new List<TcpClient>();
 
         public KeyValuePair<string, double> ChosenState;
         private double _stateScore;
         
-        // Starts server and makes a new thread for each client
+        // Starts server and makes a new thread for a client
         public void Start()
         {
-            TcpServer.Start();
-            
-            // TODO: FINISH THIS
-            for (var i = 0; i < 3; i++)
+            try
             {
+                TcpServer.Start();
                 Task.Run(Listening);
+            }
+            catch (SocketException)
+            {
+                MessageBox.Show(@"Could not host server, ensure server address and port are typed correctly!", @"ERROR", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
             }
         }
 
-        // Begins listening for clients and adds them to connected clients list
+        // Begins listening for clients and adds them to connected clients list, then creates a new thread for another
+        // incoming client
         private void Listening()
         {
             var connectedClientSocket = TcpServer.AcceptTcpClient();
-            _clientConnections.Add(connectedClientSocket);
+            ClientConnections.Add(connectedClientSocket);
 
-            if (connectedClientSocket.Connected)
-            {
-                Console.WriteLine(@"Client:" + connectedClientSocket.Client.RemoteEndPoint + @" now connected to server.");
-                OnClientJoin?.Invoke(connectedClientSocket);
-            }
-
+            if (!connectedClientSocket.Connected) return;
+            
+            Console.WriteLine(@"Client:" + connectedClientSocket.Client.RemoteEndPoint + @" now connected to server.");
+            OnClientJoin?.Invoke(connectedClientSocket);
+            Task.Run(Listening);
+               
             // Start reading from all clients
             ReadFromAllClient(connectedClientSocket);
         }
@@ -48,7 +54,7 @@ namespace WhereWeLivin.Network
         public void WriteToAllClient(object message)
         {
             // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
-            foreach (var socket in _clientConnections)
+            foreach (var socket in ClientConnections)
             {
                 var networkStream = socket.GetStream();
                 var streamWriter = new StreamWriter(networkStream);
@@ -80,7 +86,7 @@ namespace WhereWeLivin.Network
             // Handles if client sends back disconnect
             if (clientInput == null || !clientInput.Equals(GameInformation.Exit)) return;
             
-            _clientConnections.Remove(socket);
+            ClientConnections.Remove(socket);
             OnClientDisconnect?.Invoke(socket);
         }
 

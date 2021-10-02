@@ -70,9 +70,9 @@
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(170, 126);
+            this.label2.Location = new System.Drawing.Point(0, 126);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(173, 23);
+            this.label2.Size = new System.Drawing.Size(527, 23);
             this.label2.TabIndex = 2;
             this.label2.Text = "Connected Clients";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

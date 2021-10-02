@@ -1,0 +1,17 @@
+X:\CodingProjects\RiderProjects\WhereWeLivin\bin\Release\WhereWeLivin.exe.config
+X:\CodingProjects\RiderProjects\WhereWeLivin\bin\Release\WhereWeLivin.exe
+X:\CodingProjects\RiderProjects\WhereWeLivin\bin\Release\WhereWeLivin.pdb
+X:\CodingProjects\RiderProjects\WhereWeLivin\bin\Release\Newtonsoft.Json.dll
+X:\CodingProjects\RiderProjects\WhereWeLivin\bin\Release\Newtonsoft.Json.xml
+X:\CodingProjects\RiderProjects\WhereWeLivin\obj\Release\WhereWeLivin.csprojAssemblyReference.cache
+X:\CodingProjects\RiderProjects\WhereWeLivin\obj\Release\WhereWeLivin.Properties.Resources.resources
+X:\CodingProjects\RiderProjects\WhereWeLivin\obj\Release\WhereWeLivin.Pages.EndScreen.resources
+X:\CodingProjects\RiderProjects\WhereWeLivin\obj\Release\WhereWeLivin.Pages.GameClient.resources
+X:\CodingProjects\RiderProjects\WhereWeLivin\obj\Release\WhereWeLivin.Pages.HostEnter.resources
+X:\CodingProjects\RiderProjects\WhereWeLivin\obj\Release\WhereWeLivin.Pages.TemplateForm.resources
+X:\CodingProjects\RiderProjects\WhereWeLivin\obj\Release\WhereWeLivin.Pages.ServerEnter.resources
+X:\CodingProjects\RiderProjects\WhereWeLivin\obj\Release\WhereWeLivin.csproj.GenerateResource.cache
+X:\CodingProjects\RiderProjects\WhereWeLivin\obj\Release\WhereWeLivin.csproj.CoreCompileInputs.cache
+X:\CodingProjects\RiderProjects\WhereWeLivin\obj\Release\WhereWeLivin.csproj.CopyComplete
+X:\CodingProjects\RiderProjects\WhereWeLivin\obj\Release\WhereWeLivin.exe
+X:\CodingProjects\RiderProjects\WhereWeLivin\obj\Release\WhereWeLivin.pdb

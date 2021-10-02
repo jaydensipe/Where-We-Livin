@@ -59,10 +59,11 @@
             // 
             // stateContainer
             // 
-            this.stateContainer.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stateContainer.Location = new System.Drawing.Point(392, 482);
+            this.stateContainer.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.stateContainer.Font = new System.Drawing.Font("Century Gothic", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stateContainer.Location = new System.Drawing.Point(0, 537);
             this.stateContainer.Name = "stateContainer";
-            this.stateContainer.Size = new System.Drawing.Size(288, 103);
+            this.stateContainer.Size = new System.Drawing.Size(1082, 71);
             this.stateContainer.TabIndex = 3;
             this.stateContainer.Text = "Massachussets";
             this.stateContainer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -78,7 +79,7 @@
             this.yesButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.yesButton.Image = ((System.Drawing.Image)(resources.GetObject("yesButton.Image")));
             this.yesButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.yesButton.Location = new System.Drawing.Point(73, 588);
+            this.yesButton.Location = new System.Drawing.Point(79, 647);
             this.yesButton.Name = "yesButton";
             this.yesButton.Size = new System.Drawing.Size(206, 53);
             this.yesButton.TabIndex = 6;
@@ -97,7 +98,7 @@
             this.maybeButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.maybeButton.Image = ((System.Drawing.Image)(resources.GetObject("maybeButton.Image")));
             this.maybeButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.maybeButton.Location = new System.Drawing.Point(428, 588);
+            this.maybeButton.Location = new System.Drawing.Point(434, 647);
             this.maybeButton.Name = "maybeButton";
             this.maybeButton.Size = new System.Drawing.Size(206, 53);
             this.maybeButton.TabIndex = 7;
@@ -116,7 +117,7 @@
             this.noButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.noButton.Image = ((System.Drawing.Image)(resources.GetObject("noButton.Image")));
             this.noButton.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.noButton.Location = new System.Drawing.Point(784, 588);
+            this.noButton.Location = new System.Drawing.Point(790, 647);
             this.noButton.Name = "noButton";
             this.noButton.Size = new System.Drawing.Size(206, 53);
             this.noButton.TabIndex = 8;
@@ -127,9 +128,9 @@
             // waitLabel
             // 
             this.waitLabel.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.waitLabel.Location = new System.Drawing.Point(255, 565);
+            this.waitLabel.Location = new System.Drawing.Point(0, 608);
             this.waitLabel.Name = "waitLabel";
-            this.waitLabel.Size = new System.Drawing.Size(566, 103);
+            this.waitLabel.Size = new System.Drawing.Size(1082, 103);
             this.waitLabel.TabIndex = 9;
             this.waitLabel.Text = "You chose \"Yes!\". Waiting for host...";
             this.waitLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -147,9 +148,9 @@
             // waitingForHostText
             // 
             this.waitingForHostText.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.waitingForHostText.Location = new System.Drawing.Point(86, 236);
+            this.waitingForHostText.Location = new System.Drawing.Point(0, 236);
             this.waitingForHostText.Name = "waitingForHostText";
-            this.waitingForHostText.Size = new System.Drawing.Size(888, 103);
+            this.waitingForHostText.Size = new System.Drawing.Size(1082, 103);
             this.waitingForHostText.TabIndex = 10;
             this.waitingForHostText.Text = "Connection Successful! Waiting for host to begin...";
             this.waitingForHostText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -158,12 +159,11 @@
             // 
             this.pictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox.Location = new System.Drawing.Point(187, 137);
+            this.pictureBox.Location = new System.Drawing.Point(202, 139);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(685, 353);
             this.pictureBox.TabIndex = 12;
             this.pictureBox.TabStop = false;
-            this.pictureBox.Controls.Add(hidePanel);
             // 
             // GameClient
             // 

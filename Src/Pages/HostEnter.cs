@@ -99,6 +99,14 @@ namespace WhereWeLivin.Pages
         // Starts a new round and resets client choices
         private void startButton_Click(object sender, EventArgs e)
         {
+            if (_server.ClientConnections.Count == 0)
+            {
+                MessageBox.Show(@"No clients are connected!", @"ERROR", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+
+            }
+            
             if (!_gameStarted)
             {
                 startButton.Text = @"Next Round";

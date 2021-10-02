@@ -124,5 +124,11 @@
     <ItemGroup>
         <None Include="App.config" />
     </ItemGroup>
+    <ItemGroup>
+      <Content Include="earth.ico" />
+    </ItemGroup>
+    <PropertyGroup>
+        <ApplicationIcon>earth.ico</ApplicationIcon>
+    </PropertyGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

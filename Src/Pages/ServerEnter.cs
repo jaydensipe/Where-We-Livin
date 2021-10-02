@@ -33,7 +33,7 @@ namespace WhereWeLivin.Pages
         {
             if (portTextBox.Text.Equals("") || serverTextBox.Text.Equals(""))
             {
-                MessageBox.Show(@"Ensure Server Address and Port fields are non-empty!", @"ERROR", 
+                MessageBox.Show(@"Ensure server address and port fields are non-empty!", @"ERROR", 
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
