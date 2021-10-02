@@ -67,7 +67,7 @@ This application requires a server and a client to function. This section will s
 
 [![Image from Gyazo](https://i.gyazo.com/ed167b2dacc7365b80a46b23e8e0e723.png)](https://gyazo.com/ed167b2dacc7365b80a46b23e8e0e723)
 
-3. Once ready, press start game. Clients names will turn RED indicating they have not chosen an answer. Once they they have chosen, their name will turn GREEN. Once all clients names are GREEN (or whenever you want) pressing next round will send the clients a new state.
+3. Once ready, press start game. Clients names will turn RED indicating they have not chosen an answer. Once they have chosen, their name will turn GREEN. Once all clients names are GREEN (or whenever you want) pressing next round will send the clients a new state.
 
 [![Image from Gyazo](https://i.gyazo.com/7f4aa3375378de917703908520b408f2.png)](https://gyazo.com/7f4aa3375378de917703908520b408f2)
 
