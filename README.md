@@ -74,7 +74,7 @@ This application requires a server and a client to function. This section will s
 <br/> <br/>
 ### Client Setup
 
-1. Enter the information you want to connect to and press connect. If you are playing SOLO or WITH FRIENDS, this will be the IPv4 address and port of whoever is hosting.
+1. Enter the information you want to connect to and press connect. If you are playing SOLO or WITH FRIENDS, this will be the public IP address and port of whoever is hosting.
 
 [![Image from Gyazo](https://i.gyazo.com/006a8295b65152e7e6acbc36d112e334.png)](https://gyazo.com/006a8295b65152e7e6acbc36d112e334)
 
