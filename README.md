@@ -42,7 +42,7 @@ When talking with friends or family about the future, a topic that comes up a lo
 all these answers together to see if anyone shares common ground in their decisions. While that is my intended purpose for the application, it can be used in deciding any number of things, such as where to go on vacation, etc.
 ### Development Tools
 
-* C#
+* .NET Framework
 * Rider IDE
 
 ### Frameworks Used
