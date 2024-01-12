@@ -96,5 +96,5 @@ This application requires a server and a client to function. This section will s
 
 Website/Portfolio - [https://jaydensipe.github.io/](https://jaydensipe.github.io/)
 
-Project Link: [https://github.com/jaydensipe/WhereWeLivin](https://github.com/jaydensipe/WhereWeLivin)
+Project Link: [https://github.com/jaydensipe/Where-We-Livin](https://github.com/jaydensipe/Where-We-Livin)
 
